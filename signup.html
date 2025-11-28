@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Create account — Wanderly</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar small">
+    <div class="container nav">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?w=100" alt="Wanderly" class="logo" />
+        <span>Wanderly</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container center-card">
+    <div class="auth-card">
+      <h2>Create your account</h2>
+      <form id="signupForm">
+        <label>Full name</label>
+        <input type="text" id="signupName" required />
+        <label>Email</label>
+        <input type="email" id="signupEmail" required />
+        <label>Password</label>
+        <input type="password" id="signupPassword" required minlength="6" />
+        <div class="auth-actions">
+          <button class="btn primary" type="submit">Sign up</button>
+          <a class="btn ghost" href="login.html">Already have an account?</a>
+        </div>
+      </form>
+      <p id="signupMsg" class="muted"></p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

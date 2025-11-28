@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Booking — Wanderly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar small">
+    <div class="container nav">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?w=100" alt="Wanderly" class="logo" />
+        <div class="brand-text"><span class="brand-name">Wanderly</span><small class="brand-tag">travel made simple</small></div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html" id="loginLink">Log in</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container center-card">
+    <div id="bookingCard" class="booking-card">
+      <h2 id="bookingTitle">Your booking</h2>
+      <div id="bookingDetails"></div>
+      <div id="seatSummary" class="muted"></div>
+      <form id="confirmBooking" style="display:none">
+        <label>Contact phone</label>
+        <input type="tel" id="contactPhone" required />
+        <label>Passenger name</label>
+        <input type="text" id="passengerName" required />
+        <div class="auth-actions">
+          <button class="btn ghost" id="chooseSeat">Choose seats</button>
+          <button class="btn primary" id="proceedPayment">Proceed to pay</button>
+        </div>
+      </form>
+      <p id="bookingMsg" class="muted"></p>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

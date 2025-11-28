@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wanderly — Find & Book Trips</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="preloader" aria-hidden="true">
+    <div class="spinner"></div>
+    <div class="preload-text">Wanderly</div>
+  </div>
+
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1503945438517-f65904a52ce6?w=100" alt="Wanderly" class="logo" />
+        <div class="brand-text"><span class="brand-name">Wanderly</span><small class="brand-tag">travel made simple</small></div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="#search">Search</a>
+        <a href="dashboard.html" id="dashboardLink">Dashboard</a>
+        <a href="booking.html" id="myBookingsLink">My Bookings</a>
+        <a href="login.html" id="authLink">Log in</a>
+      </nav>
+      <button id="hamburger" aria-label="menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2000" class="hero-img" alt="travel" />
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <h1>Book memorable journeys — fast fares, clear choices</h1>
+          <p>Compare flights, choose seats, and manage bookings — all in one place.</p>
+          <a class="btn btn-cta" href="#search">Find flights</a>
+        </div>
+        <div class="hero-card search-card-floating">
+          <form id="searchForm" class="search-grid">
+            <div class="field">
+              <label>From</label>
+              <input type="text" id="from" placeholder="City or airport (e.g., DEL)" required />
+            </div>
+            <div class="field">
+              <label>To</label>
+              <input type="text" id="to" placeholder="Destination (city or airport)" required />
+            </div>
+            <div class="field">
+              <label>Depart</label>
+              <input type="date" id="depart" required />
+            </div>
+            <div class="field">
+              <label>Return</label>
+              <input type="date" id="return" />
+            </div>
+            <div class="field">
+              <label>Passengers</label>
+              <select id="passengers">
+                <option value="1">1 traveler</option>
+                <option value="2">2 travelers</option>
+                <option value="3">3 travelers</option>
+                <option value="4">4 travelers</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Class</label>
+              <select id="travelClass">
+                <option value="economy">Economy</option>
+                <option value="premium">Premium Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First</option>
+              </select>
+            </div>
+            <div class="actions fullwidth">
+              <button class="btn primary" type="submit">Search Flights</button>
+              <button class="btn ghost" type="button" id="clearSearch">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultsSection" class="container results-section">
+      <div id="results" class="results-grid"></div>
+    </section>
+
+    <section class="container features">
+      <div class="feature">
+        <h3>Transparent pricing</h3>
+        <p>No hidden fees — compare and pick the best fare.</p>
+      </div>
+      <div class="feature">
+        <h3>24/7 Support</h3>
+        <p>Chat or call for help anytime.</p>
+      </div>
+      <div class="feature">
+        <h3>Flexible dates</h3>
+        <p>Explore cheaper nearby dates in a single click.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="seatModal" class="modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="closeSeat">✕</button>
+      <h3>Select seats</h3>
+      <div id="seatMap" class="seat-map"></div>
+      <div class="modal-actions">
+        <button class="btn ghost" id="resetSeats">Reset</button>
+        <button class="btn primary" id="confirmSeats">Confirm seats</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="paymentModal" class="modal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="closePayment">✕</button>
+      <h3>Payment</h3>
+      <div id="paymentForm">
+        <label>Cardholder name</label>
+        <input id="cardName" type="text" required />
+        <label>Card number</label>
+        <input id="cardNumber" type="text" inputmode="numeric" maxlength="19" placeholder="4242 4242 4242 4242" />
+        <div class="row">
+          <div style="flex:1">
+            <label>Expiry</label>
+            <input id="cardExp" type="text" maxlength="5" placeholder="MM/YY" />
+          </div>
+          <div style="width:120px">
+            <label>CVC</label>
+            <input id="cardCvc" type="text" maxlength="4" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button class="btn ghost" id="cancelPayment">Cancel</button>
+          <button class="btn primary" id="payNow">Pay ₹<span id="payAmount">0</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
