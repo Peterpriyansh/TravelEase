@@ -317,4 +317,3 @@ if (payBtn) {
     localStorage.removeItem("wanderly_selectedSeat");
   });
 }
-
