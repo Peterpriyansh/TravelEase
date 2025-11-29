@@ -271,3 +271,50 @@ updateAuthUI();
   const u = loadUsers();
   if (!u.find(x=>x.email==='demo@wanderly.com')){ u.push({name:'Demo User', email:'demo@wanderly.com', pass:'demo123'}); saveUsers(u); }
 })();
+// --- Choose Seat ---
+const chooseSeatBtn = document.getElementById("chooseSeat");
+if (chooseSeatBtn) {
+  chooseSeatBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Simple seat selection using prompt
+    let seat = prompt("Enter seat number (e.g., A1, B2):");
+
+    if (seat) {
+      localStorage.setItem("wanderly_selectedSeat", seat);
+      alert("Seat selected: " + seat);
+    }
+  });
+}
+
+// --- Proceed to Pay ---
+const payBtn = document.getElementById("proceedPayment");
+if (payBtn) {
+  payBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("passengerName").value.trim();
+    const seat = localStorage.getItem("wanderly_selectedSeat");
+
+    if (!name) {
+      alert("Enter passenger name");
+      return;
+    }
+    if (!seat) {
+      alert("Please choose a seat first!");
+      return;
+    }
+
+    alert(
+      "Booking confirmed!\nPassenger: " +
+        name +
+        "\nSeat: " +
+        seat +
+        "\nPayment Successful!"
+    );
+
+    // optional: clear seat
+    localStorage.removeItem("wanderly_selectedSeat");
+  });
+}
+
